@@ -1,0 +1,228 @@
+.inverse-banner-slider {
+    position: relative;
+    margin-bottom: 47px; }
+    .inverse-banner-slider__schedule {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 100;
+      padding-bottom: 30px;
+      width: 372px;
+      -webkit-transition: background-color 0.3s ease;
+      -o-transition: background-color 0.3s ease;
+      -moz-transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease; }
+      .inverse-banner-slider__schedule__button {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        border: none;
+        padding: 9px 0 9px 40px;
+        width: 100%;
+        font-size: 18px;
+        line-height: 1.56;
+        text-align: left;
+        color: #fff;
+        background: none; }
+        .inverse-banner-slider__schedule__button::before {
+          content: "";
+          position: absolute;
+          right: 16px;
+          top: 12px;
+          display: block;
+          width: 24px;
+          height: 24px;
+          background: url("/assets/images/sprites/svg/white-arrow.svg") center no-repeat;
+          -moz-background-size: contain;
+               background-size: contain;
+          -webkit-transform: rotateX(0deg);
+             -moz-transform: rotateX(0deg);
+                  transform: rotateX(0deg); }
+        .inverse-banner-slider__schedule__button:hover, .inverse-banner-slider__schedule__button:focus {
+          outline: none; }
+      .inverse-banner-slider__schedule__text {
+        padding-right: 68px;
+        padding-left: 64px;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: visibility 0.3s ease, opacity 0.3s ease;
+        -o-transition: visibility 0.3s ease, opacity 0.3s ease;
+        -moz-transition: visibility 0.3s ease, opacity 0.3s ease;
+        transition: visibility 0.3s ease, opacity 0.3s ease; }
+      .inverse-banner-slider__schedule__item {
+        margin-bottom: 12px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.7); }
+        .inverse-banner-slider__schedule__item:first-child {
+          color: #fff; }
+    .inverse-banner-slider__slides {
+      position: relative;
+      overflow: hidden;
+      height: 584px; }
+    .inverse-banner-slider__slide {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      -webkit-transition: opacity 0.5s;
+      -o-transition: opacity 0.5s;
+      -moz-transition: opacity 0.5s;
+      transition: opacity 0.5s; }
+      .inverse-banner-slider__slide__image {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: top center no-repeat;
+        -moz-background-size: cover;
+             background-size: cover;
+        -webkit-transition: -webkit-transform 2s ease;
+        transition: -webkit-transform 2s ease;
+        -o-transition: -o-transform 2s ease;
+        -moz-transition: transform 2s ease, -moz-transform 2s ease;
+        transition: transform 2s ease;
+        transition: transform 2s ease, -webkit-transform 2s ease, -moz-transform 2s ease, -o-transform 2s ease; }
+        .inverse-banner-slider__slide__image::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.24); }
+      .inverse-banner-slider__slide__text {
+        position: absolute;
+        right: 103px;
+        bottom: 83px;
+        max-width: 557px; }
+        .inverse-banner-slider__slide__text__title {
+          font-size: 50px;
+          line-height: 1.2;
+          letter-spacing: 2px;
+          text-align: right;
+          color: #fff; }
+      .inverse-banner-slider__slide--active {
+        z-index: 2;
+        opacity: 1; }
+    .inverse-banner-slider__navigation {
+      position: absolute;
+      left: 50%;
+      bottom: 32px;
+      z-index: 3;
+      font-size: 0;
+      -webkit-transform: translateX(-50%);
+         -moz-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+           -o-transform: translateX(-50%);
+              transform: translateX(-50%); }
+      .inverse-banner-slider__navigation__button {
+        vertical-align: middle;
+        margin: 0 11px;
+        border: none;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        padding: 1px;
+        width: 10px;
+        height: 10px;
+        font-size: 0;
+        background: none;
+        -webkit-transition: background-color 0.3s;
+        -o-transition: background-color 0.3s;
+        -moz-transition: background-color 0.3s;
+        transition: background-color 0.3s; }
+        .inverse-banner-slider__navigation__button::before {
+          content: "";
+          display: block;
+          -webkit-border-radius: 50%;
+             -moz-border-radius: 50%;
+                  border-radius: 50%;
+          width: 8px;
+          height: 8px;
+          background-color: #fff;
+          -webkit-transition: background-color 0.3s;
+          -o-transition: background-color 0.3s;
+          -moz-transition: background-color 0.3s;
+          transition: background-color 0.3s; }
+        .inverse-banner-slider__navigation__button:focus {
+          outline: none; }
+        .inverse-banner-slider__navigation__button--active {
+          padding: 2px;
+          background-color: #fff; }
+          .inverse-banner-slider__navigation__button--active::before {
+            width: 6px;
+            height: 6px;
+            background-color: #098ea9; }
+    @media (min-width: 1024px) {
+      .inverse-banner-slider__schedule:hover {
+        background-color: rgba(0, 0, 0, 0.7); }
+        .inverse-banner-slider__schedule:hover .inverse-banner-slider__schedule__button::before {
+          -webkit-transform: rotateX(180deg);
+             -moz-transform: rotateX(180deg);
+                  transform: rotateX(180deg); }
+        .inverse-banner-slider__schedule:hover .inverse-banner-slider__schedule__text {
+          opacity: 1;
+          visibility: visible; } }
+    @media (max-width: 1023px) {
+      .inverse-banner-slider__schedule--opened {
+        background-color: rgba(0, 0, 0, 0.7); }
+        .inverse-banner-slider__schedule--opened .inverse-banner-slider__schedule__button::before {
+          -webkit-transform: rotateX(180deg);
+             -moz-transform: rotateX(180deg);
+                  transform: rotateX(180deg); }
+        .inverse-banner-slider__schedule--opened .inverse-banner-slider__schedule__text {
+          opacity: 1;
+          visibility: visible; } }
+    @media (max-width: 767px) {
+      .inverse-banner-slider {
+        margin-top: 0;
+        margin-bottom: 0;
+        height: 250px; }
+        .inverse-banner-slider__schedule {
+          padding-bottom: 45px;
+          width: 320px; }
+          .inverse-banner-slider__schedule__button {
+            margin-top: 4px;
+            margin-bottom: 16px;
+            padding: 9px 0 9px 26px;
+            font-size: 14px;
+            line-height: 1.71; }
+            .inverse-banner-slider__schedule__button::before {
+              right: 16px;
+              top: 13px;
+              width: 16px;
+              height: 16px; }
+          .inverse-banner-slider__schedule__text {
+            padding-right: 32px;
+            padding-left: 47px; }
+          .inverse-banner-slider__schedule__item {
+            margin-bottom: 8px;
+            font-size: 13px;
+            line-height: 1.54; }
+            .inverse-banner-slider__schedule__item br {
+              display: none; }
+        .inverse-banner-slider__slides {
+          height: 100%; }
+        .inverse-banner-slider__slide__text {
+          right: 0;
+          bottom: 55px;
+          padding: 0 16px;
+          max-width: 320px; }
+          .inverse-banner-slider__slide__text__title {
+            overflow: hidden;
+            max-height: 96px;
+            font-size: 24px;
+            line-height: 1.33;
+            letter-spacing: 1.5px;
+            text-align: right;
+            -o-text-overflow: ellipsis;
+               text-overflow: ellipsis;
+            color: #fff; }
+        .inverse-banner-slider__navigation {
+          bottom: 15px; } }

@@ -1,0 +1,27 @@
+<div class="inverse-banner-slider">
+  <div class="inverse-banner-slider__schedule">
+    <button class="inverse-banner-slider__schedule__button" type="button">Посмотреть адрес и часы работы</button>
+    <div class="inverse-banner-slider__schedule__text">
+      <div class="inverse-banner-slider__schedule__item">
+        {{address}}
+        <br>{{phone}}
+      </div>
+      <div class="inverse-banner-slider__schedule__item">
+        {{openingHours.hours}}
+      </div>
+    </div>
+  </div>
+  <div class="inverse-banner-slider__slides">
+    <a *ngFor="let slide of slides; let i = index" class="inverse-banner-slider__slide{{i === index ? ' inverse-banner-slider__slide--active' : ''}}" href="#" (click)="onClickToSlide($event, i)">
+      <div class="inverse-banner-slider__slide__image" [style.background-image]="slide.url"></div>
+      <div class="container">
+        <div class="inverse-banner-slider__slide__text">
+          <h1 class="inverse-banner-slider__slide__text__title">{{objectTitle}}</h1>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="inverse-banner-slider__navigation">
+    <button *ngFor="let slide of slides; let i = index" class="inverse-banner-slider__navigation__button{{i === index ? ' inverse-banner-slider__navigation__button--active' : ''}}" type="button" (click)="setSlide(i)"></button>
+  </div>
+</div>

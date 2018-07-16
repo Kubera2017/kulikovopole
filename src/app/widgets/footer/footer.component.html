@@ -1,0 +1,52 @@
+<footer class="footer" *ngIf="isDataReady">
+  <div class="footer__top">
+    <div class="container clearfix">
+      <div class="footer__top__col clearfix">
+        <a class="footer__top__logo" href="#">
+          <div class="footer__top__logo__image">
+          </div>
+        </a>
+        <div class="footer__top__contacts">
+          <a class="footer__top__contacts__phone" href="tel:+74874343601">{{getPhone()}}</a>
+          <p>
+            <a class="footer__top__contacts__link" href="#" target="_blank">{{getPhoneText1()}}</a><br>
+            <a class="footer__top__contacts__link" href="#" target="_blank">{{getPhoneText2()}}</a> 
+          </p>
+        </div>
+      </div>
+      <div class="footer__top__col clearfix">
+        <a class="footer__top__other-logo footer__top__other-logo--1" href="#" target="_blank">
+          <img src="/assets/images/kultura.png" srcset="/assets/images/kultura@2x.png 2x" alt="Культура.РФ">
+        </a>
+        <a class="footer__top__other-logo footer__top__other-logo--2" href="#" target="_blank">
+          <img src="/assets/images/forum.png" srcset="/assets/images/forum@2x.png 2x" alt="Культурный форум">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="container">
+      <div *ngFor="let museum of getMuseums()| slice:0:4; index as i;" class="footer__bottom__col">
+        <div class="footer__bottom__title">{{getMuseumTitle(i)}}</div>
+        <div class="footer__bottom__coordinates">{{getMuseumAddress(i)}}<br>
+          GPS: {{getMuseumCoords(i)}}
+        </div>
+        <div class="footer__bottom__time">{{getMuseumHours(i)}}</div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="footer__bottom__asterisk">
+        {{getCommHours()}}
+      </div>
+      <a class="footer__bottom__our-partners" href="#" target="_blank">Наши партнеры</a>
+    </div>
+    <div class="container">
+      <div class="footer__bottom__copyright">
+        <div class="footer__bottom__copyright__text">{{getCopyright()}}</div><a class="footer__bottom__copyright__link" href="{{getTermsUsePath()}}">{{getTermsUseText()}}</a>
+      </div>
+      <div class="footer__bottom__logos">
+        <a class="footer__bottom__logos__logo footer__bottom__logos__logo--1" href="#" target="_blank"><img src="/assets/images/tripadvizor.png" srcset="/assets/images/tripadvizor@2x.png 2x" alt="Tripadvisor"></a><a class="footer__bottom__logos__logo footer__bottom__logos__logo--2" href="#" target="_blank"><img src="/assets/images/rating.jpg" alt=""></a><a class="footer__bottom__logos__made" href="#" target="_blank">Сделано в&nbsp;Камис</a>
+      </div>
+    </div>
+  </div>
+</footer>

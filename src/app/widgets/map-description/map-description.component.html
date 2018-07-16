@@ -1,0 +1,121 @@
+<div *ngIf="isDataReady" class="map-description" id="interactive-map">
+  <div class="title">Где находится музей и&nbsp;что есть<br> интересного рядом</div>
+  <div class="map-description__wrapper">
+    <div class="yandex-map">
+        <ya-map 
+        [latitude]=coordsCenterObject.lat
+        [longitude]=coordsCenterObject.long
+        [zoom]=getScale()
+        [controls]=controls
+        (mapClick)="onClickMap(m, $event)"
+        (boundsChange)="onBoundsChange($event)"
+        >
+        <ya-marker *ngFor="let mapObject of getMapObjects(); let i = index"
+        [latitude]=getCoords(mapObject).lat
+        [longitude]=getCoords(mapObject).long
+        [iconImageHref]=getObjectIcon(i)
+        [hoverIconImageHref]=getMarkerHoverIcon(i)
+        [iconLayout]=iconLayout
+        [iconImageSize]=iconImageSize
+        [iconImageOffset]=iconImageOffset
+        [showInfo]=false
+        (markerClick)=onClickMarker(i)
+        >
+        </ya-marker>
+      </ya-map>
+    </div>
+    <div *ngIf="getMapObjects().length > 0 && activeObject >= 0" class="map-description__sidebar">
+      <div class="map-description__sidebar__slider{{showOtherObjects && getMapObjects().length > 1 ? '' : ' no-arrows'}}">
+        <button class="map-description__sidebar__prev" type="button" (click)="prevMuseum()">
+          <svg>
+            <use xlink:href="/assets/images/sprites.svg#map-slider-arrow"></use>
+          </svg>
+        </button>
+        <button class="map-description__sidebar__next" type="button" (click)="nextMuseum()">
+          <svg>
+            <use xlink:href="/assets/images/sprites.svg#map-slider-arrow"></use>
+          </svg>
+        </button>
+        <div class="map-description__sidebar__slides"
+         [style.webkitTransform]=getSliderClass().webkitTransform
+         [style.mozTransform]=getSliderClass().mozTransform
+         [style.transform]=getSliderClass().transform
+        >
+          <div *ngFor="let object of getMapObjects(); let i = index" class="map-description__sidebar__slide">
+            <div class="map-description__sidebar__slide__image" [style.background-image]=getObjectImage(i)></div>
+            <div class="map-description__sidebar__slide__text">
+              <div class="map-description__sidebar__slide__text__title">{{getObjectType(i) + ' «' + getObjectTitle(i) + '»'}}</div>
+              <div class="map-description__sidebar__slide__text__items">
+                <div class="map-description__sidebar__slide__text__item">{{getObjectAddress(i)}}<br>
+                  <a href="tel:{{getObjectPhone(i)}}">{{getObjectPhone(i)}}</a>
+                </div>
+                <div class="map-description__sidebar__slide__text__item">
+                  {{getObjectOpeningHours(i)}}
+                </div>
+              </div>
+            </div>
+            <div *ngIf="getObjectAccessEnv(i).length > 0" class="map-description__sidebar__slide__info">Доступная среда:
+              <div class="map-description__sidebar__slide__info__icons">
+                <div 
+                *ngFor="let env of getAllAccessEnv()"
+                class="map-description__sidebar__slide__info__icon{{isAccessEnabled(i, env.code) ? '' : ' map-description__sidebar__slide__info__icon--disable'}}"
+                [useLoader]="getAccessIcon(env)"
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isDataReady" id="interactive-map-inversion">
+  <div class="title">Адрес и график работы музея</div>
+  <div class="addresses container">
+    <div class="row">
+      <div *ngFor="let object of getMapObjects(); let i = index" class="address_item col-lg-3 col mg-3 col-sm-4 col-xs-12">
+        <div class="address__title">{{getObjectType(i) + ' «' + getObjectTitle(i) + '»'}}»</div>
+        <div class="address__text__items">
+          <div class="address__text__item">{{getObjectAddress(i)}}<br>
+            <a href="tel:{{getObjectPhone(i)}}">{{getObjectPhone(i)}}</a>
+          </div>
+          <div class="address__text__item">
+            {{getObjectOpeningHours(i)}}
+          </div>
+        </div>
+        <div *ngIf="getObjectAccessEnv(i).length > 0" class="address__info">Доступная среда:
+          <div class="address__info__icons">
+            <div class="row">
+              <div class="address__info__icon col-2">
+                <svg>
+                  <use xlink:href="/assets/images/sprites.svg#invalid-1"></use>
+                </svg>
+              </div>
+              <div class="address__info__icon col-2">
+                <svg>
+                  <use xlink:href="/assets/images/sprites.svg#invalid-2"></use>
+                </svg>
+              </div>
+              <div class="address__info__icon col-2">
+                <svg>
+                  <use xlink:href="/assets/images/sprites.svg#invalid-3"></use>
+                </svg>
+              </div>
+              <div class="address__info__icon col-2">
+                <svg>
+                  <use xlink:href="/assets/images/sprites.svg#invalid-4"></use>
+                </svg>
+              </div>
+              <div class="address__info__icon col-2">
+                <svg>
+                  <use xlink:href="/assets/images/sprites.svg#invalid-5"></use>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

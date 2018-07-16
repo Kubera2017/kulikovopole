@@ -1,0 +1,34 @@
+.block-text /deep/ p {
+    font-size: 18px;
+    line-height: 1.56;
+    color: #000; }
+  .block-text /deep/ a {
+    border-bottom: solid 1px #098ea9;
+    color: #098ea9; }
+    .block-text /deep/ a:hover, .block-text a:focus {
+      border-bottom: solid 1px #016a81;
+      text-decoration: none;
+      color: #016a81; }
+  .block-text--wide {
+    margin: 0 auto 71px;
+    max-width: 989px; }
+    .block-text--wide /deep/ p {
+      margin-bottom: 27px;
+      font-size: 20px;
+      line-height: 1.4;
+      color: #575757; }
+    .block-text--wide--small-margin {
+      margin: 0 auto 43px; }
+  @media (max-width: 1040px) {
+    .block-text--wide {
+      padding: 0 24px; } }
+  @media (max-width: 830px) {
+    .block-text {
+      padding: 0 24px; } }
+  @media (max-width: 767px) {
+    .block-text /deep/ p {
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 1.58; }
+    .block-text--wide {
+      margin: 23px 0; } }

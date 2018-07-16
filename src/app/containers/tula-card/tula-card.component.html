@@ -1,0 +1,27 @@
+<div class="site-container" *ngIf="isDataReady">
+  <app-header></app-header>
+  <app-inverse-banner-slider
+    objectTitle={{getObjectTitle()}}
+    address={{getAddress()}}
+    phone={{getPhone()}}
+    [openingHours]=getOpeningHours()
+    [slides]=getSlides()>
+  </app-inverse-banner-slider>
+  <app-anons content={{getAnons()}}></app-anons>
+  <app-block-text content={{getDescription()}}></app-block-text>
+  <app-map-description
+  [museum]=getMuseum()
+  [showOtherObjects]=false
+  >
+  </app-map-description>
+  <app-subscription
+    email={{getEmail()}}
+    [social_network]=getSocialNetwork()>
+  </app-subscription>
+  <app-gallery-exhibits
+    [exhibits]=getExhibits()
+    [title]=getExhibitsTitle()>
+  </app-gallery-exhibits>
+  <app-footer></app-footer>
+</div>
+

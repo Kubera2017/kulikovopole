@@ -1,0 +1,59 @@
+.description-share {
+    margin-top: 60px;
+    margin-bottom: 85px; }
+    .description-share__text {
+      margin: 0 auto;
+      padding-top: 41px;
+      padding-bottom: 40px;
+      font-size: 30px;
+      line-height: 1.6;
+      text-align: center;
+      color: #000; }
+    .description-share__button {
+      display: block;
+      margin: 0 auto;
+      border: none;
+      padding: 0;
+      width: 62px;
+      height: 62px;
+      background: none; }
+      .description-share__button /deep/ svg {
+        display: block;
+        overflow: visible;
+        width: 62px;
+        height: 62px;
+        fill: #078daa;
+        stroke: #078daa;
+        -webkit-transition: fill 0.1s ease, stroke 0.1s ease;
+        -o-transition: fill 0.1s ease, stroke 0.1s ease;
+        -moz-transition: fill 0.1s ease, stroke 0.1s ease;
+        transition: fill 0.1s ease, stroke 0.1s ease; }
+      .description-share__button:hover /deep/ svg {
+        fill: #016a81;
+        stroke: #016a81; }
+    .menu-anchors + .description-share {
+      margin-top: 22px; }
+    .trip-label + .description-share {
+      margin-top: 20px; }
+    @media (max-width: 767px) {
+      .description-share {
+        margin-bottom: 22px; }
+        .description-share .container {
+          padding: 0 32px; }
+        .description-share__text {
+          padding-top: 0;
+          padding-bottom: 0;
+          font-size: 14px;
+          line-height: 1.72;
+          letter-spacing: 1.1px; }
+        .description-share__button {
+          margin-top: 10px;
+          width: 40px;
+          height: 40px; }
+          .description-share__button svg {
+            width: 40px;
+            height: 40px; }
+        .menu-anchors + .description-share {
+          margin-top: 33px; }
+        .trip-label + .description-share {
+          margin-top: 24px; } }

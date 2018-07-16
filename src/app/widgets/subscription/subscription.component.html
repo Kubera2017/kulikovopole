@@ -1,0 +1,20 @@
+<div class="subscription">
+  <div class="container">
+    <div class="subscription__title">Будьте с&nbsp;нами на&nbsp;связи&nbsp;- там, где вам удобно</div>
+    <div class="subscription__wrapper">
+      <a class="button" href="mailto:{{email}}">Отправить сообщение</a>
+      <div class="subscription__links">
+        <a *ngFor="let social of social_network" class="subscription__link" href="{{social.url ? social.url : '#'}}" target="_blank">
+              <svg class="subscription__link__icon">
+                <use [attr.xlink:href]="'/assets/images/sprites.svg#' + getSocialbyIdent(social.ident)"></use>
+              </svg>
+              <svg *ngIf="social.ident !== 'INSTAGRAM'" class="subscription__link__icon-hover">
+                <use [attr.xlink:href]="'/assets/images/sprites.svg#' + getSocialbyIdent(social.ident) + '-hover'"></use>
+              </svg>
+              <img *ngIf="social.ident === 'INSTAGRAM'" src="/assets/images/instagram-hover.png" class="subscription__link__icon-hover" />
+        </a>
+      </div>
+      <a class="button" href="#" (click)="temp($event)">Поделиться</a>
+    </div>
+  </div>
+</div>

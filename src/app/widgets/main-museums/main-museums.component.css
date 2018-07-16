@@ -1,0 +1,241 @@
+.museums {
+    position: relative;
+    overflow-x: hidden; }
+    .museums::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 304px;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 142, 171, 0.09)), to(rgba(120, 138, 36, 0.09)));
+      background-image: -webkit-linear-gradient(top, rgba(7, 142, 171, 0.09), rgba(120, 138, 36, 0.09));
+      background-image: -moz-linear-gradient(top, rgba(7, 142, 171, 0.09), rgba(120, 138, 36, 0.09));
+      background-image: -o-linear-gradient(top, rgba(7, 142, 171, 0.09), rgba(120, 138, 36, 0.09));
+      background-image: linear-gradient(to bottom, rgba(7, 142, 171, 0.09), rgba(120, 138, 36, 0.09)); }
+    .museums__weather {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 0 auto;
+      padding-top: 32px;
+      width: 218px;
+      font-size: 18px;
+      color: #000; }
+      .museums__weather__day {
+        padding: 8px 0; }
+      .museums__weather__icon {
+        margin-right: 10px;
+        margin-left: 21px; }
+        .museums__weather__icon svg {
+          width: 40px;
+          height: 40px;
+          fill: #000; }
+        .museums__weather__icon:hover svg {
+          fill: #016a81; }
+      .museums__weather__deg {
+        font-size: 30px; }
+    .museums__list {
+      position: relative;
+      overflow-x: auto;
+      margin: 28px auto 0;
+      max-width: 1400px;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch; }
+      .museums__list__item {
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        margin: 0 8px;
+        white-space: normal; }
+        .museums__list__item__images {
+          white-space: nowrap; }
+          .museums__list__item__images img {
+            display: block;
+            margin-bottom: 9px; }
+            .museums__list__item__images img:nth-child(2) {
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: 0;
+              -webkit-transition: opacity 0.3s;
+              -o-transition: opacity 0.3s;
+              -moz-transition: opacity 0.3s;
+              transition: opacity 0.3s; }
+        .museums__list__item__image {
+          position: relative;
+          display: inline-block;
+          vertical-align: bottom; }
+          .museums__list__item__image img {
+            display: block;
+            margin-bottom: 9px; }
+            .museums__list__item__image img:nth-child(2) {
+              position: absolute;
+              left: 0;
+              top: 0;
+              opacity: 0;
+              -webkit-transition: opacity 0.3s;
+              -o-transition: opacity 0.3s;
+              -moz-transition: opacity 0.3s;
+              transition: opacity 0.3s; }
+        .museums__list__item__text {
+          height: 48px;
+          font-size: 14px;
+          line-height: 1.43;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #000; }
+        .museums__list__item:focus {
+          outline: none; }
+        .museums__list__item:focus, .museums__list__item:hover {
+          text-decoration: none; }
+          .museums__list__item:focus .museums__list__item__images img:nth-child(2), .museums__list__item:hover .museums__list__item__images img:nth-child(2) {
+            opacity: 1; }
+    .museums .mCS_no_scrollbar .mCSB_1_scrollbar {
+      opacity: 0; }
+    .museums .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+      margin: 7px 0;
+      height: 2px; }
+    .museums .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+      background: -webkit-gradient(linear, left top, right top, from(#078eab), to(#788a24));
+      background: -webkit-linear-gradient(left, #078eab, #788a24);
+      background: -moz-linear-gradient(left, #078eab, #788a24);
+      background: -o-linear-gradient(left, #078eab, #788a24);
+      background: linear-gradient(to right, #078eab, #788a24); }
+      .museums .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        width: 100%;
+        height: 40px; }
+    @media (min-width: 1024px) {
+      .museums__list {
+        max-width: none; }
+        .museums__list:not(.mCustomScrollbar) {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: end;
+          -webkit-align-items: flex-end;
+             -moz-box-align: end;
+              -ms-flex-align: end;
+                  align-items: flex-end;
+          -webkit-justify-content: space-around;
+              -ms-flex-pack: distribute;
+                  justify-content: space-around; }
+      .museums .mCSB_container {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: end;
+        -webkit-align-items: flex-end;
+           -moz-box-align: end;
+            -ms-flex-align: end;
+                align-items: flex-end;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around; }
+      .museums .mCSB_1_scrollbar {
+        visibility: hidden; } }
+    @media (max-width: 1383px) {
+      .museums__list__item:nth-child(2) .museums__list__item__image:first-child img {
+        width: 173px;
+        height: 70px; }
+      .museums__list__item:nth-child(2) .museums__list__item__image:last-child img {
+        width: 246px;
+        height: 51px; } }
+    @media (max-width: 1366px) {
+      .museums::before {
+        height: 253px; }
+      .museums__list__item:nth-child(1) img {
+        width: 87.9px;
+        height: 144.7px; }
+      .museums__list__item:nth-child(2) .museums__list__item__image:first-child img {
+        width: 158px;
+        height: 65px; }
+      .museums__list__item:nth-child(2) .museums__list__item__image:last-child img {
+        width: 234.1px;
+        height: 47.3px; }
+      .museums__list__item:nth-child(3) img {
+        width: 265.8px;
+        height: 113px; }
+      .museums__list__item:nth-child(4) img {
+        width: 191.3px;
+        height: 60.6px; } }
+    @media (min-width: 1024px) and (max-width: 1100px) {
+      .museums::before {
+        height: 238px; }
+      .museums__list__item:nth-child(1) img {
+        width: 79.11px;
+        height: 130.23px; }
+      .museums__list__item:nth-child(2) .museums__list__item__image:first-child img {
+        width: 142.2px;
+        height: 58.5px; }
+      .museums__list__item:nth-child(2) .museums__list__item__image:last-child img {
+        width: 210.69px;
+        height: 42.57px; }
+      .museums__list__item:nth-child(3) img {
+        width: 239.22px;
+        height: 101.7px; }
+      .museums__list__item:nth-child(4) img {
+        width: 172.17px;
+        height: 54.54px; } }
+    @media (max-width: 767px) {
+      .museums::before {
+        height: 138px; }
+      .museums .mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar::before {
+        display: none; }
+      .museums .mCSB_horizontal.mCSB_inside > .mCSB_container {
+        margin-bottom: 10px; }
+      .museums__weather {
+        padding-top: 15px;
+        width: 125px; }
+        .museums__weather__day {
+          margin-right: 8px;
+          font-size: 10px;
+          color: #000; }
+        .museums__weather__icon {
+          margin: 0; }
+          .museums__weather__icon svg {
+            width: 24px;
+            height: 24px; }
+        .museums__weather__deg {
+          margin-left: 8px;
+          font-size: 18px;
+          line-height: 1.78;
+          color: #000; }
+      .museums__list {
+        margin-top: -25px; }
+        .museums__list__item {
+          margin: 0 5px; }
+          .museums__list__item__text {
+            height: 56px;
+            max-width: 140px;
+            font-size: 10px;
+            line-height: 1.4;
+            letter-spacing: 0.7px;
+            color: #000; }
+          .museums__list__item:nth-child(1) .museums__list__item__images img {
+            width: 70px;
+            height: auto; }
+          .museums__list__item:nth-child(2) .museums__list__item__images img {
+            width: 115.4px;
+            height: auto; }
+          .museums__list__item:nth-child(2) .museums__list__item__image:nth-child(2) img {
+            width: 150px; }
+          .museums__list__item:nth-child(2) .museums__list__item__text {
+            max-width: 200px; }
+          .museums__list__item:nth-child(3) .museums__list__item__images img {
+            width: 200px;
+            height: auto; }
+          .museums__list__item:nth-child(4) .museums__list__item__images img {
+            width: 175px;
+            height: auto; } }

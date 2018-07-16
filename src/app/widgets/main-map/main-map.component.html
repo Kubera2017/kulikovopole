@@ -1,0 +1,247 @@
+<div class="map" *ngIf="isDataReady">
+  <div class="title">Где находится Куликово поле?</div>
+  <div class="map__cities">
+    <div class="map__city">
+      <div class="map__city__name">Калуга</div>
+      <div class="map__city__distance">200 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="map__city">
+      <div class="map__city__name">Тула</div>
+      <div class="map__city__distance">130 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="map__city">
+      <div class="map__city__name">Москва</div>
+      <div class="map__city__distance">250 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="map__city">
+      <div class="map__city__name">Рязань</div>
+      <div class="map__city__distance">170 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="map__wrapper clearfix">
+    <div class="yandex-map"></div>
+    <div class="map__overlay"></div>
+    <div class="map__sidebar">
+      <div class="map__sidebar__top"><a class="button button--light" href="#" target="_blank">Как добраться</a>
+        <div class="map__sidebar__top__title">Найдите на интерактивной карте</div>
+        <div class="map__sidebar__top__list">
+          <div class="map__sidebar__top__list__item">- что посмотреть</div>
+          <div class="map__sidebar__top__list__item">- где поесть</div>
+          <div class="map__sidebar__top__list__item">- где остановиться</div>
+          <div class="map__sidebar__top__list__item">- чем заняться</div>
+        </div><a class="button button--light" href="#" target="_blank">Интерактивная карта</a>
+      </div>
+      <div class="map__sidebar__bottom">
+        <div class="map__sidebar__bottom__facilities">
+          <div *ngFor="let object of allInfrastructure"
+          class="map__sidebar__bottom__facility"
+          (mouseenter)="activateFacility(object.code)"
+          (mouseleave)="deactivateFacility(object.code)">
+            <div class="map__sidebar__bottom__facility__icon{{isActive(object.code) ? ' map__sidebar__bottom__facility__icon_active' : ''}}" [useLoader]="getFacilityIcon(object)"></div>
+            <div class="map__sidebar__bottom__facility__title">{{getFacilityTitle(object)}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="map__museums">
+      <a class="map__museum map__museum--1" href="#" target="_blank">
+        <div class="map__museum__image" [style.background-image]="getMuseumImages('8604745').img"></div>
+        <div class="map__museum__image map__museum__image--hover" [style.background-image]="getMuseumImages('8604745').hover"></div>
+        <div class="map__museum__text">{{getMuseumTitle('8604745')}}</div>
+        <div class="map__museum__icons">
+            <div *ngFor="let infrastructureIcon of getMuseumInfrastructure('8604745')"
+            [useLoader]="getInfrastructureIcon(infrastructureIcon)"
+            class="map__museum__icon{{isActive(infrastructureIcon.code) ? ' map__museum__icon_active' : ''}}"
+            (mouseenter)="activateFacility(infrastructureIcon.code)"
+            (mouseleave)="deactivateFacility(infrastructureIcon.code)"></div>
+        </div>
+        <div class="map__museum__pin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#068EAC" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <mask id="pin-a" fill="#fff">
+              <rect width="22" height="22" rx="11"/>
+            </mask>
+            <g fill="#068EAC" mask="url(#pin-a)">
+              <path d="M0 0h22v22H0z"/>
+            </g>
+            <path fill="#FFF" d="M12.25 7.117a.631.631 0 0 1-.109-.013.456.456 0 0 1-.358-.551l.333-1.387a.482.482 0 0 1 .576-.342c.257.057.417.3.358.55l-.332 1.387a.48.48 0 0 1-.468.356zm-.017 2.088c-.002.014-1.608 6.499-1.614 6.515-.071.344-.01.662.182.891.187.222.48.343.826.343a.47.47 0 0 1 .48.46.47.47 0 0 1-.48.461c-.644 0-1.206-.246-1.578-.69-.381-.454-.514-1.075-.363-1.706.007-.04 1.492-5.986 1.492-5.986h-.939a.47.47 0 0 1-.481-.458.47.47 0 0 1 .481-.46h1.547c.266 0 .484.205.484.46a.486.486 0 0 1-.037.17z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#FFF" stroke="#000" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <g transform="translate(1 1)">
+              <mask id="pin-hover-a" fill="#fff">
+                <rect width="20" height="20" rx="10"/>
+              </mask>
+              <g fill="#FFF" mask="url(#pin-hover-a)">
+                <path d="M0 0h20v20H0z"/>
+              </g>
+            </g>
+            <path d="M12.136 7.47a.574.574 0 0 1-.098-.012.414.414 0 0 1-.326-.501l.303-1.261a.438.438 0 0 1 .523-.31.417.417 0 0 1 .326.5l-.302 1.26a.436.436 0 0 1-.426.324zm-.015 1.898c-.002.012-1.462 5.908-1.468 5.923-.064.313-.01.602.166.81.17.202.436.311.751.311.241 0 .436.188.436.418 0 .232-.195.42-.436.42-.585 0-1.096-.223-1.434-.628-.347-.412-.468-.976-.33-1.55.006-.036 1.356-5.442 1.356-5.442h-.853a.427.427 0 0 1-.438-.417c0-.231.196-.418.438-.418h1.406a.43.43 0 0 1 .44.418.442.442 0 0 1-.034.155z"/>
+          </svg>
+        </div>
+      </a>
+      <a class="map__museum map__museum--2" href="#" target="_blank">
+          <div class="map__museum__image" [style.background-image]="getMuseumImages('8604605').img"></div>
+          <div class="map__museum__image map__museum__image--hover" [style.background-image]="getMuseumImages('8604605').hover"></div>
+          <div class="map__museum__text">{{getMuseumTitle('8604605')}}</div>
+          <div class="map__museum__icons">
+            <div *ngFor="let infrastructureIcon of getMuseumInfrastructure('8604605')"
+            [useLoader]="getInfrastructureIcon(infrastructureIcon)"
+            class="map__museum__icon{{isActive(infrastructureIcon.code) ? ' map__museum__icon_active' : ''}}"
+            (mouseenter)="activateFacility(infrastructureIcon.code)"
+            (mouseleave)="deactivateFacility(infrastructureIcon.code)"></div>
+          </div>
+        <div class="map__museum__pin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#068EAC" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <mask id="pin-a" fill="#fff">
+              <rect width="22" height="22" rx="11"/>
+            </mask>
+            <g fill="#068EAC" mask="url(#pin-a)">
+              <path d="M0 0h22v22H0z"/>
+            </g>
+            <path fill="#FFF" d="M12.25 7.117a.631.631 0 0 1-.109-.013.456.456 0 0 1-.358-.551l.333-1.387a.482.482 0 0 1 .576-.342c.257.057.417.3.358.55l-.332 1.387a.48.48 0 0 1-.468.356zm-.017 2.088c-.002.014-1.608 6.499-1.614 6.515-.071.344-.01.662.182.891.187.222.48.343.826.343a.47.47 0 0 1 .48.46.47.47 0 0 1-.48.461c-.644 0-1.206-.246-1.578-.69-.381-.454-.514-1.075-.363-1.706.007-.04 1.492-5.986 1.492-5.986h-.939a.47.47 0 0 1-.481-.458.47.47 0 0 1 .481-.46h1.547c.266 0 .484.205.484.46a.486.486 0 0 1-.037.17z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#FFF" stroke="#000" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <g transform="translate(1 1)">
+            <mask id="pin-hover-a" fill="#fff">
+            <rect width="20" height="20" rx="10"/>
+            </mask>
+            <g fill="#FFF" mask="url(#pin-hover-a)">
+            <path d="M0 0h20v20H0z"/>
+            </g>
+            </g>
+            <path d="M12.136 7.47a.574.574 0 0 1-.098-.012.414.414 0 0 1-.326-.501l.303-1.261a.438.438 0 0 1 .523-.31.417.417 0 0 1 .326.5l-.302 1.26a.436.436 0 0 1-.426.324zm-.015 1.898c-.002.012-1.462 5.908-1.468 5.923-.064.313-.01.602.166.81.17.202.436.311.751.311.241 0 .436.188.436.418 0 .232-.195.42-.436.42-.585 0-1.096-.223-1.434-.628-.347-.412-.468-.976-.33-1.55.006-.036 1.356-5.442 1.356-5.442h-.853a.427.427 0 0 1-.438-.417c0-.231.196-.418.438-.418h1.406a.43.43 0 0 1 .44.418.442.442 0 0 1-.034.155z"/>
+          </svg>
+        </div>
+      </a>
+
+      <a class="map__museum map__museum--4" href="#" target="_blank">
+        <div class="map__museum__text">{{getMuseumTitle('8604760')}}</div>
+        <div class="map__museum__image map__museum__image--1" [style.background-image]="getMuseumImages('8604760').img"></div>
+        <div class="map__museum__image map__museum__image--hover map__museum__image--hover--1" [style.background-image]="getMuseumImages('8604760').hover"></div>
+        <div class="map__museum__icons">
+            <div *ngFor="let infrastructureIcon of getMuseumInfrastructure('8604760')"
+            [useLoader]="getInfrastructureIcon(infrastructureIcon)"
+            class="map__museum__icon{{isActive(infrastructureIcon.code) ? ' map__museum__icon_active' : ''}}"
+            (mouseenter)="activateFacility(infrastructureIcon.code)"
+            (mouseleave)="deactivateFacility(infrastructureIcon.code)"></div>
+        </div>
+        <div class="map__museum__pin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#068EAC" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <mask id="pin-a" fill="#fff">
+              <rect width="22" height="22" rx="11"/>
+            </mask>
+            <g fill="#068EAC" mask="url(#pin-a)">
+              <path d="M0 0h22v22H0z"/>
+            </g>
+            <path fill="#FFF" d="M12.25 7.117a.631.631 0 0 1-.109-.013.456.456 0 0 1-.358-.551l.333-1.387a.482.482 0 0 1 .576-.342c.257.057.417.3.358.55l-.332 1.387a.48.48 0 0 1-.468.356zm-.017 2.088c-.002.014-1.608 6.499-1.614 6.515-.071.344-.01.662.182.891.187.222.48.343.826.343a.47.47 0 0 1 .48.46.47.47 0 0 1-.48.461c-.644 0-1.206-.246-1.578-.69-.381-.454-.514-1.075-.363-1.706.007-.04 1.492-5.986 1.492-5.986h-.939a.47.47 0 0 1-.481-.458.47.47 0 0 1 .481-.46h1.547c.266 0 .484.205.484.46a.486.486 0 0 1-.037.17z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#FFF" stroke="#000" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <g transform="translate(1 1)">
+              <mask id="pin-hover-a" fill="#fff">
+                <rect width="20" height="20" rx="10"/>
+              </mask>
+              <g fill="#FFF" mask="url(#pin-hover-a)">
+                <path d="M0 0h20v20H0z"/>
+              </g>
+            </g>
+            <path d="M12.136 7.47a.574.574 0 0 1-.098-.012.414.414 0 0 1-.326-.501l.303-1.261a.438.438 0 0 1 .523-.31.417.417 0 0 1 .326.5l-.302 1.26a.436.436 0 0 1-.426.324zm-.015 1.898c-.002.012-1.462 5.908-1.468 5.923-.064.313-.01.602.166.81.17.202.436.311.751.311.241 0 .436.188.436.418 0 .232-.195.42-.436.42-.585 0-1.096-.223-1.434-.628-.347-.412-.468-.976-.33-1.55.006-.036 1.356-5.442 1.356-5.442h-.853a.427.427 0 0 1-.438-.417c0-.231.196-.418.438-.418h1.406a.43.43 0 0 1 .44.418.442.442 0 0 1-.034.155z"/>
+          </svg>
+        </div>
+      </a>
+      <a class="map__museum map__museum--5 clearfix" href="#" target="_blank">
+        <div class="map__museum__image map__museum__image--1" [style.background-image]="getMuseumImages('8604743').img"></div>
+        <div class="map__museum__image map__museum__image--hover" [style.background-image]="getMuseumImages('8604743').hover"></div>
+        <div class="map__museum__text">{{getMuseumTitle('8604743')}}</div>
+        <div class="map__museum__icons">
+            <div *ngFor="let infrastructureIcon of getMuseumInfrastructure('8604743')"
+            [useLoader]="getInfrastructureIcon(infrastructureIcon)"
+            class="map__museum__icon{{isActive(infrastructureIcon.code) ? ' map__museum__icon_active' : ''}}"
+            (mouseenter)="activateFacility(infrastructureIcon.code)"
+            (mouseleave)="deactivateFacility(infrastructureIcon.code)"></div>
+        </div>
+        <div class="map__museum__pin">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#068EAC" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <mask id="pin-a" fill="#fff">
+              <rect width="22" height="22" rx="11"/>
+            </mask>
+            <g fill="#068EAC" mask="url(#pin-a)">
+              <path d="M0 0h22v22H0z"/>
+            </g>
+            <path fill="#FFF" d="M12.25 7.117a.631.631 0 0 1-.109-.013.456.456 0 0 1-.358-.551l.333-1.387a.482.482 0 0 1 .576-.342c.257.057.417.3.358.55l-.332 1.387a.48.48 0 0 1-.468.356zm-.017 2.088c-.002.014-1.608 6.499-1.614 6.515-.071.344-.01.662.182.891.187.222.48.343.826.343a.47.47 0 0 1 .48.46.47.47 0 0 1-.48.461c-.644 0-1.206-.246-1.578-.69-.381-.454-.514-1.075-.363-1.706.007-.04 1.492-5.986 1.492-5.986h-.939a.47.47 0 0 1-.481-.458.47.47 0 0 1 .481-.46h1.547c.266 0 .484.205.484.46a.486.486 0 0 1-.037.17z"/>
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="30" viewBox="0 0 22 30">
+            <path fill="#FFF" stroke="#000" d="M11 30c7.333-7.329 11-13.662 11-19 0-6.075-4.925-11-11-11S0 4.925 0 11c0 5.39 3.667 11.724 11 19z"/>
+            <g transform="translate(1 1)">
+              <mask id="pin-hover-a" fill="#fff">
+                <rect width="20" height="20" rx="10"/>
+              </mask>
+              <g fill="#FFF" mask="url(#pin-hover-a)">
+                <path d="M0 0h20v20H0z"/>
+              </g>
+            </g>
+            <path d="M12.136 7.47a.574.574 0 0 1-.098-.012.414.414 0 0 1-.326-.501l.303-1.261a.438.438 0 0 1 .523-.31.417.417 0 0 1 .326.5l-.302 1.26a.436.436 0 0 1-.426.324zm-.015 1.898c-.002.012-1.462 5.908-1.468 5.923-.064.313-.01.602.166.81.17.202.436.311.751.311.241 0 .436.188.436.418 0 .232-.195.42-.436.42-.585 0-1.096-.223-1.434-.628-.347-.412-.468-.976-.33-1.55.006-.036 1.356-5.442 1.356-5.442h-.853a.427.427 0 0 1-.438-.417c0-.231.196-.418.438-.418h1.406a.43.43 0 0 1 .44.418.442.442 0 0 1-.034.155z"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+    <div class="map__label map__label--1">Трасса М4 Дон</div>
+    <div class="map__label map__label--2">Трасса М4 Дон</div>
+    <div class="map__arrow map__arrow--1">
+      <svg>
+        <use xlink:href="/assets/images/sprites.svg#arrow-top"></use>
+      </svg>
+    </div>
+    <div class="map__arrow map__arrow--2">
+      <svg>
+        <use xlink:href="/assets/images/sprites.svg#arrow-bottom"></use>
+      </svg>
+    </div>
+  </div>
+  <div class="map__cities">
+    <div class="map__city">
+      <div class="map__city__name">Воронеж</div>
+      <div class="map__city__distance">290 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="map__city">
+      <div class="map__city__name">Липецк</div>
+      <div class="map__city__distance">150 км</div>
+      <div class="map__city__arrow">
+        <svg>
+          <use xlink:href="/assets/images/sprites.svg#up"></use>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="map__buttons"><a class="button" href="#">Интерактивная карта</a><a class="button" href="#">Как добраться</a></div>
+</div>

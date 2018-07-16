@@ -1,0 +1,17 @@
+.text-with-links {
+    padding: 75px 0; }
+    .text-with-links__content {
+      margin: 50px auto;
+      max-width: 959px;
+      font-size: 30px;
+      line-height: 1.6;
+      text-align: center;
+      color: #000; 
+    }
+      .text-with-links__content /deep/ a {
+        border-bottom: solid 1px #098ea9;
+        text-decoration: none;
+        color: #098ea9; }
+        .text-with-links__content /deep/ a:hover {
+          border-bottom: none;
+          color: #016a81; }

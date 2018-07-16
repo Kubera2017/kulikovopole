@@ -1,0 +1,13 @@
+<ng-container *ngIf="isDataReady">
+  <app-header></app-header>
+  <app-main-museums [museumObjects]=getMuseumObjects()></app-main-museums>
+  <app-anons content={{getAnons2()}}></app-anons>
+  <app-text-with-links content={{getAnons()}}></app-text-with-links>
+  <app-main-map [museumObjects]=getMuseumObjects()></app-main-map>
+  <app-subscription
+    email={{getEmail()}}
+    [social_network]=getSocialNetwork()>
+  </app-subscription>
+  <app-footer></app-footer>
+</ng-container>
+

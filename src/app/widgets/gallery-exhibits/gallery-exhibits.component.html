@@ -1,0 +1,16 @@
+<div class="gallery-exhibits">
+  <div class="title">{{title}}</div>
+  <div class="gallery-exhibits__list" id="exhibits">
+    <a *ngFor="let exhibit of exhibits" class="gallery-exhibits__item" [href]="exhibit.imageL" data-lightbox="roadtrip" data-title="{{exhibit.title}}">
+      <div class="gallery-exhibits__item__front">
+        <img [src]=exhibit.image alt="{{exhibit.title}}">
+      </div>
+      <div class="gallery-exhibits__item__back">
+        <div class="gallery-exhibits__item__back__plate">
+          <div class="gallery-exhibits__item__back__plate__title">{{exhibit.title}}</div>
+          <div class="gallery-exhibits__item__back__plate__text">{{exhibit.comment}}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

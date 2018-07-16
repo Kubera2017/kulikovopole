@@ -1,0 +1,481 @@
+.map {
+    padding-top: 33px; }
+    .map .title {
+      margin-bottom: 51px; }
+    .map__cities {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-justify-content: space-around;
+          -ms-flex-pack: distribute;
+              justify-content: space-around;
+      margin: 17px 0; }
+    .map__city {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+         -moz-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      margin: 0 64px; }
+      .map__city__name {
+        margin-right: 21px;
+        padding-top: 2px;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #000; }
+      .map__city__distance {
+        margin-right: 4px;
+        font-size: 16px;
+        line-height: 1.5;
+        color: rgba(0, 0, 0, 0.4); }
+      .map__city__arrow svg {
+        width: 24px;
+        height: 24px; }
+    .map__wrapper {
+      position: relative; }
+      .map__wrapper .yandex-map {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url("/assets/images/bitmap.jpg") 40% -290px no-repeat; }
+        .map__wrapper .yandex-map::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.42); }
+    .map__overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(7, 142, 171, 0.35)), to(rgba(120, 138, 36, 0.35)));
+      background-image: -webkit-linear-gradient(top, rgba(7, 142, 171, 0.35), rgba(120, 138, 36, 0.35));
+      background-image: -moz-linear-gradient(top, rgba(7, 142, 171, 0.35), rgba(120, 138, 36, 0.35));
+      background-image: -o-linear-gradient(top, rgba(7, 142, 171, 0.35), rgba(120, 138, 36, 0.35));
+      background-image: linear-gradient(to bottom, rgba(7, 142, 171, 0.35), rgba(120, 138, 36, 0.35)); }
+    .map__museums {
+      position: relative; }
+    .map__museum {
+      position: absolute;
+      left: 50%;
+      display: block;
+      font-size: 0; }
+      .map__museum__text {
+        margin-top: 7px;
+        font-size: 14px;
+        line-height: 1.57;
+        letter-spacing: 1.8px;
+        text-transform: uppercase;
+        color: #fff; }
+      .map__museum__icons {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin-top: 9px; }
+      .map__museum__icon {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 auto;
+           -moz-box-flex: 0;
+            -ms-flex: 0 0 auto;
+                flex: 0 0 auto;
+        margin-right: 6px;
+        -webkit-border-radius: 50%;
+           -moz-border-radius: 50%;
+                border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        background-color: #078daa;
+        -webkit-transition: background-color 0.2s ease;
+        -o-transition: background-color 0.2s ease;
+        -moz-transition: background-color 0.2s ease;
+        transition: background-color 0.2s ease; }
+        .map__museum__icon /deep/ svg {
+          display: block;
+          width: 100%;
+          height: 100%;
+          fill: #fff;
+          -webkit-transition: fill 0.2s ease;
+          -o-transition: fill 0.2s ease;
+          -moz-transition: fill 0.2s ease;
+          transition: fill 0.2s ease; }
+        .map__museum__icon:hover {
+          background-color: #fff; }
+          .map__museum__icon:hover /deep/ svg {
+            fill: #000; }
+        .map__museum__icon_active {
+          background-color: #fff !important; }
+          .map__museum__icon_active /deep/ svg {
+            fill: #000 !important; }
+      .map__museum__pin {
+        display: none; }
+      .map__museum__image {
+        display: inline-block;
+        vertical-align: bottom;
+        -moz-background-size: cover;
+             background-size: cover; }
+        .map__museum__image--hover {
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+          -webkit-transition: opacity 0.2s ease;
+          -o-transition: opacity 0.2s ease;
+          -moz-transition: opacity 0.2s ease;
+          transition: opacity 0.2s ease; }
+      .map__museum:hover {
+        text-decoration: none; }
+        .map__museum:hover .map__museum__image--hover {
+          opacity: 1; }
+      .map__museum--1 {
+        top: 55px;
+        margin-left: -169px; }
+        .map__museum--1 .map__museum__image {
+          width: 168.8px;
+          height: 52.8px; }
+        .map__museum--1 .map__museum__text {
+          max-width: 214px; }
+      .map__museum--2 {
+        top: 260px;
+        margin-left: -317px; }
+        .map__museum--2 .map__museum__image {
+          width: 212px;
+          height: 90px; }
+        .map__museum--2 .map__museum__text {
+          max-width: 210px; }
+      .map__museum--3 {
+        top: 362px;
+        margin-left: -85px; }
+        .map__museum--3 .map__museum__image {
+          width: 132px;
+          height: 27px; }
+        .map__museum--3 .map__museum__text {
+          max-width: 210px; }
+      .map__museum--4 {
+        top: 469px;
+        margin-left: -331px; }
+        .map__museum--4 .map__museum__text {
+          padding-bottom: 12px;
+          padding-left: 85px;
+          max-width: 335px; }
+        .map__museum--4 .map__museum__image {
+          margin-bottom: 15px;
+          width: 332px;
+          height: 52px; }
+          .map__museum--4 .map__museum__image--1 {
+            margin-bottom: 15px;
+            width: 332px;
+            height: 52px; }
+          .map__museum--4 .map__museum__image--2 {
+            width: 200px;
+            height: 44px; }
+        .map__museum--4 .map__museum__icons {
+          margin-top: 0;
+          padding-left: 129px; }
+        .map__museum--4 .map__museum__image.map__museum__image--hover--1 {
+          left: 0;
+          top: 40px; }
+          .is-browser-ie .map__museum--4 .map__museum__image.map__museum__image--hover--1 {
+            top: 43px; }
+          .is-browser-firefox .map__museum--4 .map__museum__image.map__museum__image--hover--1 {
+            top: 43px; }
+          .is-browser-edge .map__museum--4 .map__museum__image.map__museum__image--hover--1 {
+            top: 43px; }
+        .map__museum--4 .map__museum__image.map__museum__image--hover--2 {
+          left: 132px;
+          top: 69px;
+          width: 200px;
+          height: 44px; }
+          .is-browser-ie .map__museum--4 .map__museum__image.map__museum__image--hover--2 {
+            top: 71px; }
+          .is-browser-firefox .map__museum--4 .map__museum__image.map__museum__image--hover--2 {
+            top: 71px; }
+          .is-browser-edge .map__museum--4 .map__museum__image.map__museum__image--hover--2 {
+            top: 71px; }
+      .map__museum--5 {
+        top: 488px;
+        margin-left: 43px;
+        min-width: 240px; }
+        .map__museum--5 .map__museum__image {
+          float: left;
+          margin-right: 16px;
+          margin-bottom: 50px;
+          width: 58px;
+          height: 108px; }
+        .map__museum--5 .map__museum__text {
+          margin-top: 60px;
+          max-width: 240px; }
+    .map__sidebar {
+      position: relative;
+      float: right;
+      margin-top: 16px;
+      margin-right: 17px;
+      margin-bottom: 16px;
+      max-width: 260px; }
+      .map__sidebar .button {
+        display: block; }
+      .map__sidebar__top {
+        padding: 16px;
+        background-color: rgba(0, 0, 0, 0.7); }
+        .map__sidebar__top__title {
+          margin-top: 15px;
+          font-size: 20px;
+          line-height: 1.4;
+          color: #fff; }
+        .map__sidebar__top__list {
+          margin-top: 4px;
+          margin-bottom: 18px; }
+          .map__sidebar__top__list__item {
+            margin-bottom: 1px;
+            margin-left: 20px;
+            font-size: 15px;
+            line-height: 1.73;
+            color: rgba(255, 255, 255, 0.6); }
+      .map__sidebar__bottom {
+        padding: 16px;
+        background-color: rgba(0, 0, 0, 0.35); }
+        .map__sidebar__bottom__facility {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -moz-box;
+          display: -ms-flexbox;
+          display: flex;
+          margin-bottom: 12px; }
+          .map__sidebar__bottom__facility__icon {
+            margin-right: 12px;
+            -webkit-border-radius: 50%;
+               -moz-border-radius: 50%;
+                    border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            background-color: #078daa;
+            -webkit-transition: background-color 0.2s ease;
+            -o-transition: background-color 0.2s ease;
+            -moz-transition: background-color 0.2s ease;
+            transition: background-color 0.2s ease; }
+            .map__sidebar__bottom__facility__icon /deep/ svg {
+              display: block;
+              width: 28px;
+              height: 28px;
+              fill: #fff;
+              -webkit-transition: fill 0.2s ease;
+              -o-transition: fill 0.2s ease;
+              -moz-transition: fill 0.2s ease;
+              transition: fill 0.2s ease; }
+            .map__sidebar__bottom__facility__icon:hover {
+              background-color: #fff; }
+              .map__sidebar__bottom__facility__icon:hover /deep/ svg {
+                fill: #000; }
+            .map__sidebar__bottom__facility__icon_active {
+                  background-color: #fff !important; }
+              .map__sidebar__bottom__facility__icon_active /deep/ svg {
+                fill: #000 !important; }
+          .map__sidebar__bottom__facility__title {
+            font-size: 15px;
+            line-height: 1.87;
+            color: #fff; }
+          .map__sidebar__bottom__facility:last-child {
+            margin-bottom: 0; }
+    .map__label {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      font-size: 14px;
+      line-height: 1.57;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #fff; }
+      .map__label--1 {
+        top: 12px;
+        margin-left: -308px; }
+      .map__label--2 {
+        top: auto;
+        bottom: 10px;
+        margin-left: -98px; }
+    .map__arrow {
+      position: absolute;
+      left: 50%;
+      top: 0; }
+      .map__arrow svg {
+        display: block;
+        width: 100%;
+        height: 100%; }
+      .map__arrow--1 {
+        top: 10px;
+        margin-left: -162px; }
+        .map__arrow--1 svg {
+          width: 13px;
+          height: 35px; }
+      .map__arrow--2 {
+        top: auto;
+        bottom: 39px;
+        margin-left: -10px; }
+        .map__arrow--2 svg {
+          width: 18px;
+          height: 32px; }
+    .map__buttons {
+      display: none; }
+    @media (max-width: 1180px) {
+      .map__city {
+        margin: 0 40px; } }
+    @media (max-width: 1135px) {
+      .map__museum--4 {
+        margin-left: -375px; }
+      .map__museum--5 {
+        margin-left: 0; } }
+    @media (max-width: 1023px) {
+      .map .title {
+        margin-bottom: 20px; }
+      .map__cities {
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
+        margin: 12px 0; }
+      .map__city {
+        display: block;
+        margin: 0 14px; }
+        .map__city__name {
+          margin-right: 0;
+          font-size: 18px;
+          line-height: 1.33;
+          letter-spacing: 2px; }
+        .map__city__distance {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.5; }
+        .map__city__arrow {
+          display: none; }
+      .map__wrapper {
+        height: 438px; }
+      .map__museum__image {
+        display: none; }
+      .map__museum__text {
+        font-size: 10px;
+        line-height: 1.2;
+        letter-spacing: 0.8px; }
+      .map__museum__icons {
+        display: none; }
+      .map__museum__pin {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 28px;
+        height: 38px;
+        -webkit-transition: -webkit-transform 0.3s ease;
+        transition: -webkit-transform 0.3s ease;
+        -o-transition: -o-transform 0.3s ease;
+        -moz-transition: transform 0.3s ease, -moz-transform 0.3s ease;
+        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, -webkit-transform 0.3s ease, -moz-transform 0.3s ease, -o-transform 0.3s ease; }
+        .map__museum__pin svg {
+          position: absolute;
+          left: 0;
+          top: 0;
+          overflow: visible; }
+          .map__museum__pin svg:last-child {
+            opacity: 0;
+            -webkit-transition: opacity 0.3s ease;
+            -o-transition: opacity 0.3s ease;
+            -moz-transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease; }
+      .map__museum:hover .map__museum__pin {
+        -webkit-transform: scale(1.14286);
+           -moz-transform: scale(1.14286);
+            -ms-transform: scale(1.14286);
+             -o-transform: scale(1.14286);
+                transform: scale(1.14286); }
+        .map__museum:hover .map__museum__pin svg:last-child {
+          opacity: 1; }
+      .map__museum--1 {
+        top: 28px;
+        margin-left: -32px;
+        max-width: 120px; }
+        .map__museum--1 .map__museum__pin {
+          left: -22px;
+          top: -21px; }
+      .map__museum--2 {
+        top: 195px;
+        margin-left: -118px;
+        text-align: right; }
+        .map__museum--2 .map__museum__pin {
+          left: 103px;
+          top: -18px; }
+      .map__museum--3 {
+        display: none; }
+      .map__museum--4 {
+        top: 296px;
+        margin-left: -141px;
+        text-align: right; }
+        .map__museum--4 .map__museum__text {
+          padding: 0; }
+        .map__museum--4 .map__museum__pin {
+          left: 126px;
+          top: -39px; }
+      .map__museum--5 {
+        top: 352px;
+        margin-left: -70px;
+        min-width: 119px;
+        text-align: right; }
+        .map__museum--5 .map__museum__pin {
+          left: 101px;
+          top: -42px; }
+        .map__museum--5 .map__museum__text {
+          margin-top: 0; }
+      .map__sidebar {
+        display: none; }
+      .map__label {
+        display: none; }
+      .map__arrow {
+        display: none; }
+      .map__buttons {
+        display: block;
+        margin-top: 25px;
+        margin-bottom: 24px;
+        text-align: center; }
+        .map__buttons .button {
+          display: inline-block;
+          margin: 0 16px;
+          width: 274px; } }
+    @media (max-width: 767px) {
+      .map {
+        padding-top: 29px; }
+        .map__cities {
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+             -moz-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+        .map__wrapper + .map__cities {
+          margin-top: 8px; }
+        .map__city {
+          margin: 0 14px; }
+          .map__city__name {
+            font-size: 12px;
+            line-height: 1.5;
+            letter-spacing: 1.3px; }
+          .map__city__distance {
+            font-size: 9px;
+            line-height: 1.78; }
+        .map__buttons .button {
+          display: block;
+          margin: 0 auto 16px;
+          width: 272px; }
+          .map__buttons .button:last-child {
+            margin-bottom: 0; } }

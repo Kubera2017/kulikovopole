@@ -1,0 +1,19 @@
+<div class="museums">
+  <div class="museums__weather">
+    <div class="museums__weather__day">29 сентября</div>
+    <div class="museums__weather__icon">
+      <svg>
+        <use xlink:href="/assets/images/sprites.svg#cloudiness"></use>
+      </svg>
+    </div>
+    <div class="museums__weather__deg">+12</div>
+  </div>
+  <div class="museums__list">
+    <a *ngFor="let museum of museumObjects" class="museums__list__item" href="/{{lang.selected.lang}}/MUSEUM/{{museum.value}}" (click)="onClickMuseum($event, museum.value)">
+      <div class="museums__list__item__images">
+        <img src="/assets/images/museums/{{getMuseumImages(museum.value).img}}" srcset="/assets/images/museums/{{getMuseumImages(museum.value).img2x}} 2x" alt="">
+        <img src="/assets/images/museums/{{getMuseumImages(museum.value).hover}}" srcset="/assets/images/museums/{{getMuseumImages(museum.value).hover2x}} 2x" alt="">
+      </div>
+      <div class="museums__list__item__text">{{museum.title}}</div>
+    </a>
+</div>
